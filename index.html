@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>LinkedIn Feed Sanitizer</title>
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Outfit:wght@500;700&display=swap" rel="stylesheet">
+    
+    <!-- Icons -->
+    <script src="https://unpkg.com/lucide@latest"></script>
+    
+    <!-- Styles -->
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="background-blobs">
+        <div class="blob blob-1"></div>
+        <div class="blob blob-2"></div>
+    </div>
+
+    <div class="app-container">
+        <header>
+            <div class="logo">
+                <i data-lucide="shield-check" class="icon-brand"></i>
+                <h1>Feed<span class="highlight">Sanitizer</span></h1>
+            </div>
+            <p class="subtitle">Filter out the noise.Protect your peace.</p>
+        </header>
+
+        <main>
+            <!-- Input Section -->
+            <section id="input-section" class="active-view">
+                <div class="mood-selector">
+                    <h3>Select your mood</h3>
+                    <div class="mood-cards">
+                        <button class="mood-card active" data-mood="chill">
+                            <i data-lucide="coffee"></i>
+                            <span>Chill</span>
+                            <small>No intense career talk</small>
+                        </button>
+                        <button class="mood-card" data-mood="focus">
+                            <i data-lucide="crosshair"></i>
+                            <span>Focus</span>
+                            <small>Hide influencers only</small>
+                        </button>
+                        <button class="mood-card" data-mood="validation">
+                            <i data-lucide="heart"></i>
+                            <span>Validation</span>
+                            <small>Only positive vibes</small>
+                        </button>
+                    </div>
+                </div>
+
+                <div class="input-area">
+                    <textarea id="feed-input" placeholder="Paste your LinkedIn feed content here..."></textarea>
+                    <div class="actions">
+                        <button id="clear-btn" class="btn-secondary">Clear</button>
+                        <button id="analyze-btn" class="btn-primary">
+                            <i data-lucide="sparkles"></i> Sanitise Feed
+                        </button>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Processing Section -->
+            <section id="processing-section" class="hidden">
+                <div class="loader">
+                    <div class="spinner"></div>
+                    <p>Analyzing vibes...</p>
+                </div>
+            </section>
+
+            <!-- Results Section -->
+            <section id="results-section" class="hidden">
+                <div class="results-header">
+                    <button id="back-btn" class="btn-text">
+                        <i data-lucide="arrow-left"></i> Back
+                    </button>
+                    <h2>Your Sanitized Feed</h2>
+                    <div class="stats">
+                        <span id="hidden-count" class="badge">0 hidden</span>
+                    </div>
+                </div>
+                <div id="feed-container" class="feed-grid">
+                    <!-- Posts will be injected here -->
+                </div>
+            </section>
+        </main>
+
+        <footer>
+            <p>Built for peace of mind.</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>
